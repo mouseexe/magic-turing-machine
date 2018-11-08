@@ -23,3 +23,19 @@ Turing machines can be used to solve a variety of problems. The one we build tod
 ## How do we know that a (2,3) Turing machine is actually universal?
 http://www.wolframscience.com/prizes/tm23/TM23Proof.pdf
 Here's a 44 page proof written in 2007 by Alex Smith. He uses notation with the states being A/B, and the colors being 0,1,2, but the machine follows the same rules. This is a little in depth, so don't be worried if you don't really understand what's going on.
+
+# How do we build this out of Magic cards?
+Same way you eat an elephant: One bite at a time.
+
+We'll start with the basic setup.
+
+First, we have a Prototype Portal imprinted with an Isochron Scepter. We need a couple Isochron Scepters and this was just the first way that came to mind to do it. With this Portal, we create two Isochron Scepters, imprinting an Artificial Evolution and a Brainstorm.
+
+Finally, we have a Soul Foundry with a Clever Impersonator imprinted. This will allow us to make token copies of just about anything we need later.
+
+On the right, we have a Sol Ring and Chromatic Lantern, along with a Paradox Engine. This, with something on an Isochron Scepter, generates us infinite mana and infinite castings of whatever spell we need. With Artificial Evolution and Brainstorm, we can now change any card's text to affect different creatures, and easily manipulate the top of our library.
+
+The final piece of initial setup is Unnatural Selection. In this Turing machine, we represent our colors with creature types, so it's important to ensure that our machine pieces don't get caught in the tape, so to speak. We use Wizard as a machine designation, so anything with that creature type won't get killed as our machine runs.
+![Engine Setup](https://github.com/mouseexe/magic-turing-machine/blob/master/Engine%20Setup.png)
+
+
