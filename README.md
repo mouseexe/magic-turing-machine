@@ -56,7 +56,8 @@ This is where it starts to get complicated. We have three colors: (A), (B), and 
 
 With these types defined, we can start setting up rules. For example, an Ally will always be an Ape, and an Ally will always be a Leech. An Archer will also always be an Ape, but will instead be a Rat, rather than a Leech. So every Ally token is a Token Creature - Ally Ape Leech, and so on. We use Dralnu's Crusade to define these type maps. The first Dralnu's Crusade is its own card, but the rest are just Clever Impersonators.
 
-![Creature Type Mapping](https://github.com/mouseexe/magic-turing-machine/blob/master/Creature%20Type%20Mapping.png)
+![Creature Type Mapping 1](https://github.com/mouseexe/magic-turing-machine/blob/master/Creature%20Type%20Mapping%201.png)
+![Creature Type Mapping 2](https://github.com/mouseexe/magic-turing-machine/blob/master/Creature%20Type%20Mapping%202.png)
 
 ## Tape Creation and Management
 
