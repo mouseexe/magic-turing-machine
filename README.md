@@ -35,16 +35,18 @@ Same way you eat an elephant: One bite at a time.
 
 ## Engine Setup
 
-First, we have a Prototype Portal imprinted with an Isochron Scepter. We need a couple Isochron Scepters and this was just the first way that came to mind to do it. With this Portal, we create two Isochron Scepters, imprinting an Artificial Evolution and a Brainstorm.
+As a general disclaimer, this entire machine should be buildable in an [Elder Dragon Highlander](https://mtg.gamepedia.com/Commander_(format)) deck, which means only one of each non-basic land. Any time you see a card that's a copy of another existing card, that's actually a Clever Impersonator copying the original.
 
-Finally, we have a Soul Foundry with a Clever Impersonator imprinted. This will allow us to make token copies of just about anything we need later.
+To achieve this, we have a Soul Foundry with a Clever Impersonator imprinted. This will allow us to make as many token copies of the Impersonator as we need.
 
-On the right, we have a Sol Ring and Chromatic Lantern, along with a Paradox Engine. This, with something on an Isochron Scepter, generates us infinite mana and infinite castings of whatever spell we need. With Artificial Evolution and Brainstorm, we can now change any card's text to affect different creatures, and easily manipulate the top of our library.
+Many cards have had their text altered, which I've displayed in the images below. This was accomplished with Artificial Evolution, which we've imprinted onto an Isochron Scepter to cast as many times as we need. We also have a Brainstorm on another Isochron Scepter so that we can draw and manipulate the top of our deck as needed.
+
+On the right, we have a Sol Ring and Chromatic Lantern, along with a Paradox Engine. This, along with any spell on an Isochron Scepter, generates us infinite mana and infinite castings. We can now loop Artificial Evolution and Brainstorm indefinitely.
 
 The final piece of initial setup is Unnatural Selection. In this Turing machine, we represent our colors with creature types, so it's important to ensure that our machine pieces don't get caught in the tape, so to speak. We use Wizard as a machine designation, so anything with that creature type won't get killed as our machine runs.
 ![Engine Setup](https://github.com/mouseexe/magic-turing-machine/blob/master/Engine%20Setup.png)
 
-## Creatue Type Mapping
+## Creature Type Mapping
 
 This is where it starts to get complicated. We have three colors: (A), (B), and (C). These are represented with the creature types Ape, Bat, and Cat. We also need to distinguish between the left and right sides of the tape, so we'll say that everything on the left is also a Leech, and everything on the right is also a Rat. To make a token that is both an Ape and a Leech, or an Ape and a Rat, we need a creature type that can represent both of these types at once. Here are the types we use, and what they represent. Ignore the Transition column for now, that will be important later.
 
@@ -61,15 +63,15 @@ With these types defined, we can start setting up rules. For example, an Ally wi
 
 ## Tape Creation and Management
 
-Before we can start running our machine, we need to create an input tape. We manage the tape with Aether Flash, Cathar's Crusade, and a set of hacked Noxious Ghouls. Since the tokens we create are going to be 2/2s by default, and each will be pumped with two different Dralnu's Crusades, we're looking at a 4/4 token every time we make a new one. Two Aether Flashes (one is a Clever Impersonator) take care of this, dealing 4 damage to every new creature. Cathar's Crusade triggers at the same time, and we stack the triggers so our new token gets +1/+1 before immediately dying. Then, we trigger one of the two sets of Noxious Ghouls. A Leech will give another -2/-2 to every non-Leech, while leaving Leeches the same. This nets every Leech +1 toughness, and every Rat -1 toughness (since Rats also benefit from Cathar's Crusade). This way, we ensure that every time a new token is made, a different token dies.
+Before we can start running our machine, we need to create an input tape. We manage the tape with Aether Flash, Virulent Plague, Valor in Akros, and a set of hacked Noxious Ghouls. Since the tokens we create are going to be 2/2s by default, and each will be pumped with two different Dralnu's Crusades, we're looking at a 4/4 token every time we make a new one. A Virulet Plague brings this down to a 2/2. Aether Flash deals 2 damage to every new creature, just enough to kill it. Valor in Akros triggers at the same time, and we stack the triggers so our new token gets +1/+1 before immediately dying. Then, we trigger one of the two sets of Noxious Ghouls. A Leech will give another -2/-2 to every non-Leech, while leaving Leeches the same. This nets every Leech +1 toughness, and every Rat -1 toughness (since Rats also benefit from Valor in Akros). This way, we ensure that every time a new token is made, a different token dies.
+
+We also have a Noxious Ghoul for Trilobites and Sphinxes. This is because we will frequently have Trilobite tokens and a Sphinx creature entering the battlefield, so we want to give -1/-1 to all other creatures to cancel out the +1/+1 from Valor in Akros.
 
 ![Tape Management](https://github.com/mouseexe/magic-turing-machine/blob/master/Tape%20Management.png)
 
 You'll notice that two Noxious Ghouls are highlighted in a red box. This is because we want to wait to create these Ghouls until our initial tape is created. With only one of each Ghoul, creating a new token nets that side +1 toughness, and +0 to the opposite side. This allows us to populate both sides of the tape without actually moving anything. Once our tape is created entirely, we can add the second two Ghouls to make it move as normal.
 
 To create the initial tape, we use Drana's Chosen to add our chose of color on whichever side we want. Since they're all Wizards, you can tap another Chosen for Cohort (they've been hacked to read Wizard instead of Ally). To untap, simply repeat the Isochron Scepter loop from earlier.
-
-We'll also want to create an arbitrarly large number of Weird tokens, but I'll get to that later.
 
 ![Tape Creation](https://github.com/mouseexe/magic-turing-machine/blob/master/Tape%20Creation.png)
 
@@ -83,7 +85,9 @@ The table depicted here is the same as the one I listed above in the initial des
 
 ## Transitioning States
 
-You'll notice that some of our head logic creates tokens that immediately die and create a different token. Azras always die and create Allies, Beebles always die and create Blinkmoths, and Citizens always die and create Carriers. That's because Azra, Beeble, and Citizen tokens only exist to prompt a state change. The page I linked above had an ingenius way of triggering a state change, which uses a mechanic called Phasing. Remember the Cloak of Invisibility I told you to not worry about earlier? Now we worry about it. Our Alpha and Beta states are all both enchanted with Cloaks of Invisibility (most of which were Clever Impersonators), and half of them have been phased out with our own Time and Tide before we started off the machine. We use Time and Tide again to swap the phased in and out Necromancers, but this time we don't want to cast it ourselves. Whenever a Trilobite enters the battlefield, our hacked Tajuru Archer will trigger. Azras, Beebles, and Citizens are all Trilobites thanks to a hacked Dralnu's Crusade. Our Archer is equipped with a Blight Sickle, so he'll be dealing damage in the form of -1/-1 counters. The only creature with flying is our very own Chancellor of the Spires, which gets nailed with a lot of damage. We can use one of our Drana's Chosen to create a number of extra Weird tokens, which are all also Trilobites, to make sure the damage is high enough to kill our own Chancellor. When the Chancellor dies, since it has -1/-1 counters on it, it will return to the battlefield under our opponent's control, thanks to a Necroskitter we donated with Bazaar Trader. To get this Chancellor back under our control again, we just have to ensure that we cast a Gather Specimens earlier in the turn, so all creatures come under our control. When the Chancellor returns to us, it targets the only instant in a graveyard, a Time and Tide belonging to our opponent. 
+You'll notice that some of our head logic creates tokens that immediately die and create a different token. Azras always die and create Allies, Beebles always die and create Blinkmoths, and Citizens always die and create Carriers. That's because Azra, Beeble, and Citizen tokens only exist to prompt a state change. The page I linked above had an ingenius way of triggering a state change, which uses a mechanic called Phasing. Remember the Cloak of Invisibility I told you to not worry about earlier? Now we worry about it. Our Alpha and Beta states are all both enchanted with Cloaks of Invisibility (most of which were Clever Impersonators), and half of them have been phased out with our own Time and Tide before we started off the machine. We use Time and Tide again to swap the phased in and out Necromancers, but this time we don't want to cast it ourselves. Whenever a Trilobite enters the battlefield, our hacked Dragon Tempest will trigger. The new Trilobite will have to choose a target to deal damage to, and thanks to a pair of Ivory Masks (one for us, one donated to our opponent) and hacked Crystalline Slivers, the only legal target is  Azras, Beebles, and Citizens are all Trilobites thanks to a hacked Dralnu's Crusade. Since our Trilobites are black and we have a Corrosive Mentor giving Wither, the damage triggered off Dragon Tempest is in the form of -1/-1 counters. Our Venom Sliver helps out as well, giving Trilobites Deathtouch so they can kill Chancellor with only one damage. When in the Chancellor dies, since it has -1/-1 counters on it, it will return to the battlefield under our opponent's control, due to the Necroskitter we donated with Bazaar Trader. To get this Chancellor back under our control again, we just have to ensure that we cast a Gather Specimens earlier in the turn, so all creatures come under our control. When the Chancellor returns to us, it targets the only instant in a graveyard, a Time and Tide belonging to our opponent. 
+
+There's one piece missing. If we go a large number of moves without a transition, we'll have a lot of -1/-1s coming at our Sphinx, since it is neither a Leech nor a Rat. In order to prevent this, we need to establish early a pair of Door of Destinies (naming Sphinx) and an Inexorable Tide. When we set up our original tape, we have to cast a spell to untap Drana's Chosen. Every time we do, we proliferate the Doors of Destinies so our Sphinx has +2/+2 for every token on the tape. This will prevent it from dying to the Noxious Ghouls that move the tape. 
 
 ![Transitioning State](https://github.com/mouseexe/magic-turing-machine/blob/master/Transition%20Change.png)
 
@@ -94,7 +98,7 @@ How do we get our opponent to have a Time and Tide in their graveyard? Doesn't t
 ![Opponent Control](https://github.com/mouseexe/magic-turing-machine/blob/master/Opponent%20Control.png)
 
 # Is this possible to actually do in game?
-Yeah. Or well, I hope so. I made an [Elder Dragon Highlander](https://mtg.gamepedia.com/Commander_(format)) deck [here](http://tappedout.net/mtg-decks/spirit-of-turing/?cb=1541628479) that I believe can actually pull this off in real game of Magic. One day I hope to demonstrate that two strings are equal to each other with a Turing machine made of Magic cards, but I doubt any of my friends will let me get that far in a game!
+Yeah. Or well, I hope so. I made an EDH deck [here](http://tappedout.net/mtg-decks/spirit-of-turing/?cb=1541628479) that I believe can actually pull this off in real game of Magic. One day I hope to demonstrate that two strings are equal to each other with a Turing machine made of Magic cards, but I doubt any of my friends will let me get that far in a game!
 
 # Wrapping up
 Thank you for reading! I've spent a lot of time trying to improve Churchill's design, and I'm pretty happy with where this has ended up. If I missed something, made a mistake, or even if something just isn't entirely clear from my explanation, please shoot me an email at kevin.s.schwenk@gmail.com and I'll get it fixed.
