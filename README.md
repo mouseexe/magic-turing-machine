@@ -33,6 +33,8 @@ Here's a 44 page proof written in 2007 by Alex Smith. He uses notation with the 
 # How do we build this out of Magic cards?
 Same way you eat an elephant: One bite at a time.
 
+Before we jump in though, I want to address a problem that keeps this from being an entirely perfect Turing machine. The goal of any Turing machine to operate independently of human choice. We can eliminate most choice by not having may triggers, but we do have one player choice required. Chancellor of the Spires has a may trigger, which we will define here to always accept. In short, treat this single may trigger as a regular trigger and the machiene will function entirely.
+
 ## Engine Setup
 
 As a general disclaimer, this entire machine should be buildable in an [Elder Dragon Highlander](https://mtg.gamepedia.com/Commander_(format)) deck, which means only one of each non-basic land. Any time you see a card that's a copy of another existing card, that's actually a Clever Impersonator copying the original.
