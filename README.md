@@ -73,7 +73,7 @@ We also have a Noxious Ghoul for Trilobites and Sphinxes. This is because we wil
 
 You'll notice that two Noxious Ghouls are highlighted in a red box. This is because we want to wait to create these Ghouls until our initial tape is created. With only one of each Ghoul, creating a new token nets that side +1 toughness, and +0 to the opposite side. This allows us to populate both sides of the tape without actually moving anything. Once our tape is created entirely, we can add the second two Ghouls to make it move as normal.
 
-To create the initial tape, we use Drana's Chosen to add our chose of color on whichever side we want. Since they're all Wizards, you can tap another Chosen for Cohort (they've been hacked to read Wizard instead of Ally). To untap, simply repeat the Isochron Scepter loop from earlier.
+To create the initial tape, we use Drana's Chosen to add our choice of color on whichever side we want. Since they're all Wizards, you can tap another Chosen for Cohort (they've been hacked to read Wizard instead of Ally). To untap, simply repeat the Isochron Scepter loop from earlier.
 
 ![Tape Creation](https://github.com/mouseexe/magic-turing-machine/blob/master/Tape%20Creation.png)
 
