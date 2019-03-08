@@ -64,15 +64,20 @@ Changing states is done by abusing a mechanic known as phasing.
 We have enchanted most of our Rotlung Reanimators with Cloaks of Invsibility, so that half of them are phased out at any given time.
 We can change the state by swapping the phased in and out Rotlung Reanimators.
 We swap them by duplicating a Time and Tide permanently on the stack with a Dualcaster Mage.
+
 To trigger the Dualcaster Mage entering, all we need to do is kill it.
 When it first entered, it fought the Dread Slaver, just like all the creature tokens.
+
 When it dies, it will return to play, and be forced to target and cast Time and Tide.
 To kill it, we create a unique creature token whenever we want to change states, a Trilobite.
 A hacked and color-shifted Dragon Tempest triggers on Trilobites entering, which are forced to target Dualcaster Mage as the only thing without shroud or protection from blue.
 Felhide Petrifier gives our Trilobites Deathtouch, which kills the Dualcaster instantly.
+
 It then returns, which casts Time and Tide and swaps the states.
 The Trilobite will die to the Aether Flash, and a separate set of Rotlung Reanimators will process the particular Trilobite to get the correct new creature onto the tape.
+
 A Noxious Ghoul for both Trilobites and Humans will work to cancel out the stat boost from Valor of Akros as the non-tape pieces enter play.
 To ensure that the Dualcaste Mage doesn't die to tape movement, as we can't make it a Yeti or Zombie to ensure it doesn't move the tape itself, we have to equalize the -1/-1's it takes from other Noxious Ghouls.
+
 We use a color-shifted Death's Presence to give +1/+1 counters to Dualcaster Mage, which is the only creature without protection from blue.
 This ensures that every time a creature dies, it boosts the toughness of Dualcaster Mage more than the next creature entering will subtract from it.
