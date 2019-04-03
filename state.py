@@ -16,9 +16,9 @@ class Tape:
 
 # Saves the binary state of the machine
 class State:
-  def __init__(self, auto):
+  def __init__(self, mode):
     self.state = True
-    self.auto = auto
+    self.mode = mode
 
 # Colors for easier reading
 class bcolors:
@@ -28,8 +28,13 @@ class bcolors:
 
 # Run the program
 def main():
-  automatic = 'y' == input('Automatic mode? (y/n): ')
-  state = State(automatic) # Initialize state
+  config = input('Mode? (auto, silent, other): ')
+  if config == 'silent':
+    state = State(2)
+  elif config == 'auto':
+    state = State(1)
+  else:
+    state = State(0)
   tape = Tape() # Initialize tape
   space = None # Set a null space for the start of the list
   if len(sys.argv) == 1:
@@ -73,9 +78,10 @@ def main():
 
   if tape.head: # Check that tape has a head
     while readHead(state, tape): # Loop until halt
-      print(printTape(tape, state)) # Display machine progress
-      if not state.auto:
-        input() # Allow user to manually increment
+      if state.mode < 2: # Silent mode
+        print(printTape(tape, state)) # Display machine progress
+      if state.mode < 1: # Auto mode
+        input()
     with open("output.txt", "w") as text_file:
           print(printOutput(tape), file=text_file)
   else:
