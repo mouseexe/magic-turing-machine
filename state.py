@@ -22,7 +22,8 @@ class State:
 
 # Colors for easier reading
 class bcolors:
-  WARNING = '\033[93m'
+  ALPHA = '\033[93m'
+  BRAVO = '\033[94m'
   ENDC = '\033[0m'
 
 # Run the program
@@ -72,7 +73,7 @@ def main():
 
   if tape.head: # Check that tape has a head
     while readHead(state, tape): # Loop until halt
-      print(printTape(tape)) # Display machine progress
+      print(printTape(tape, state)) # Display machine progress
       if not state.auto:
         input() # Allow user to manually increment
     with open("output.txt", "w") as text_file:
@@ -206,12 +207,15 @@ def readHead(state, tape):
       tape.head = tape.head.left
   return True
 
-def printTape(tape):
+def printTape(tape, state):
   curr = tape.left
   printString = ''
   while curr:
     if curr is tape.head:
-      printString += bcolors.WARNING + curr.symbol.upper() + bcolors.ENDC
+      if state.state:
+        printString += bcolors.ALPHA + curr.symbol.upper() + bcolors.ENDC
+      else:
+        printString += bcolors.BRAVO + curr.symbol.upper() + bcolors.ENDC
     else:
       printString += curr.symbol
     curr = curr.right
