@@ -1,3 +1,6 @@
+import sys
+import fileinput
+
 # Represents a single space on the tape
 class Space:
   def __init__(self, symbol, left, right):
@@ -26,32 +29,54 @@ class bcolors:
 def main():
   automatic = 'y' == input('Automatic mode? (y/n): ')
   state = State(automatic) # Initialize state
-  tapeString = input('Enter a tape (non-valid characters will be replaced by blank spaces): ') # Grab tape from the user
   tape = Tape() # Initialize tape
   space = None # Set a null space for the start of the list
-  for char in tapeString: # Process user tape
-    if char.lower() not in 'abcdefghijklmnoprs':
-      char = 's'
-    if char.isupper(): # Check for head
-      newSpace = Space(char.lower(), space, None)
-      if space:
-        space.right = newSpace
-      space = newSpace
-      tape.head = space
-    else: # Otherwise add as normal space
-      newSpace = Space(char, space, None)
-      if space:
-        space.right = newSpace
-      space = newSpace
+  if len(sys.argv) == 1:
+    tapeString = input('Enter a tape (non-valid characters will be replaced by blank spaces): ') # Grab tape from the user
+    for char in tapeString: # Process user tape
+      if char.lower() not in 'abcdefghijklmnoprs':
+        char = 's'
+      if char.isupper(): # Check for head
+        newSpace = Space(char.lower(), space, None)
+        if space:
+          space.right = newSpace
+        space = newSpace
+        tape.head = space
+      else: # Otherwise add as normal space
+        newSpace = Space(char, space, None)
+        if space:
+          space.right = newSpace
+        space = newSpace
 
-    if tape.left == None: # Set far left of tape if not already set
-      tape.left = space
+      if tape.left == None: # Set far left of tape if not already set
+        tape.left = space
+  else:
+    for line in fileinput.input():
+      for char in line:
+        if char.lower() not in 'abcdefghijklmnoprs':
+          char = 's'
+        if char.isupper(): # Check for head
+          newSpace = Space(char.lower(), space, None)
+          if space:
+            space.right = newSpace
+          space = newSpace
+          tape.head = space
+        else: # Otherwise add as normal space
+          newSpace = Space(char, space, None)
+          if space:
+            space.right = newSpace
+          space = newSpace
+
+        if tape.left == None: # Set far left of tape if not already set
+          tape.left = space
 
   if tape.head: # Check that tape has a head
     while readHead(state, tape): # Loop until halt
-      printTape(tape) # Display machine progress
+      print(printTape(tape)) # Display machine progress
       if not state.auto:
         input() # Allow user to manually increment
+    with open("output.txt", "w") as text_file:
+          print(printOutput(tape), file=text_file)
   else:
     print('Head required.')
 
@@ -190,6 +215,17 @@ def printTape(tape):
     else:
       printString += curr.symbol
     curr = curr.right
-  print(printString)
+  return printString
+
+def printOutput(tape):
+  curr = tape.left
+  printString = ''
+  while curr:
+    if curr is tape.head:
+      printString += curr.symbol.upper()
+    else:
+      printString += curr.symbol
+    curr = curr.right
+  return printString
 
 main()
