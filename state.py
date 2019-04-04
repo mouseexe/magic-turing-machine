@@ -38,7 +38,7 @@ def main():
   tape = Tape() # Initialize tape
   space = None # Set a null space for the start of the list
   if len(sys.argv) == 1:
-    tapeString = input('Enter a tape (non-valid characters will be replaced by blank spaces): ') # Grab tape from the user
+    tapeString = input('Enter a tape (non-valid characters will be replaced by blank spaces): ')
     for char in tapeString: # Process user tape
       if char.lower() not in 'abcdefghijklmnoprs':
         char = 's'
