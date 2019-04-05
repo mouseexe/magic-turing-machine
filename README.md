@@ -2,9 +2,52 @@
 
 Just want to see the deck? Here's [decklist with no explanation](https://tappedout.net/mtg-decks/spirit-of-turing/).
 
-## TODO: What is a Turing machine?
+## What is a Turing machine?
+A [Turing machine](https://en.wikipedia.org/wiki/Turing_machine) is a simple computer, a state machine with a two-way infinite tape from which it reads input and writes output.
 
-## TODO: How do we set up the machine?
+A [universal Turing machine](https://en.wikipedia.org/wiki/Universal_Turing_machine) (UTM) is a Turing machine that is capable of simulating any other Turing machine.
+
+We are representing the UTM created by Yurii Rogozhin in his [1996 paper](https://www.sciencedirect.com/science/article/pii/S0304397596000771)
+
+## How do we set up the machine?
+In order to establish the machine, we need a few core cards.
+There can be a couple ways to get to that stage, but we'll focus on just one path for now.
+1. Have 9 mana sources available, at least 3 mana's worth being non-land.
+2. Cast Paradox Engine and Isochron Scepter, imprinting a draw cantrip (we'll use Brainstorm).
+3. Using Isochron Scepter to cast Brainstorm, we can untap our non-land mana sources and and the Isochron Scepter to make infinite mana and draw as many cards as we need.
+4. Cast Soul Foundry, imprinting Clever Impersonator.
+5. Activate Soul Foundry two times to make two copies of Isochron Scepter, imprinting Noxious Revival and Artificial Evolution.
+6. Cast Alchor's Tomb, Dralnu's Crusade, Dragon Tempest, Death's Presence, Ivory Mask, That Which Was Taken, Unnatural Selection, Valor in Akros, Crippling Blight, Leyline of Anticipation, and Engineered Plague (naming Weird as the creature type).
+7. Activate Soul Foundry X times to create X copies of Dralnu's Crusade.
+8. Activate the Artificial Evolution Isochron Scepter to assign proper rules text to each Dralnu's Crusade (represented by images to be added later).
+9. Activate the Articicial Evolution Isochron Scepter to assign proper rules text to Dragon Tempest.
+10. Activate Alchor's Tomb to color Dragon Tempest and Death's Presence to blue.
+11. Cast Vengeful Dead, Dread Slaver, Gruul Ragebeast, Crystalline Sliver, Ward Sliver, Rotlung Reanimator, Noxious Ghoul, Felhide Petrifier, and Drana's Chosen.
+12. Activate Soul Foundry to create enough copies of Drana's Chosen, Rotlung Reanimator, Ward Sliver, and Noxious Ghoul.
+13. Duplicate and Donate all needed permanents to each player, recurring Donate with the Noxious Revival Isochron Scepter (exact donate list tba).
+14. Cast Mindslaver and activate it on an opponent with Arcane Lighthouse, then pass the turn.
+15. Activate Arcane Lighthouse to remove shroud from Crystalline Sliver.
+16. Activate the Artifical Evolution Isochron Scepter to change the rules text of Crystalline Sliver.
+17. Pass the turn back to yourself.
+18. Create a token with one of the Drana's Chosen.
+19. Activate the Artifical Evolution Isochron Scepter to change the rules text of the Rotlung Reanimators, Drana's Chosen, Ward Slivers, Felhide Petrifier, Dread Slaver, Vengeful Dead, and all but two of the Noxious Ghouls.
+20. Enchant the previously created token with a Cloak of Invisibility.
+21. Activate Soul Foundry to enchant half of the Rotlung Reanimators with Cloak of Invisiblity.
+22. Sacrifice the token to Ashnod's Altar and return it to your hand with the Noxious Revival Isochron Scepter.
+23. Cast Time and Tide to phase out half of the Rotlung Reanimators.
+24. Cast Cloak of Invisibility on a Rotlung Reanimator, then activate Soul Foundry to enchant the rest.
+25. Activate Soul Foundry to create a copy of Isochron Scepter, imprinting Ebony Charm.
+26. Bring all of your opponents to 1 life by activating the Ebony Charm Isochron Scepter.
+27. Create a Weird token with Drana's Chosen.
+28. Pass the turn, stopping on upkeep.
+29. Cast Gather Specimens.
+30. Activate the needed Drana's Chosen to establish the initial tape.
+31. Cast Dualcaster Mage.
+32. Activate the Artifical Evolution Isochron Scepter to assign proper rules text to the last two Noxious Ghouls.
+33. Cast Time and Tide, hold priority.
+34. Sacrifice a Weird, hold priority.
+35. Sacrifice one of the two middle tokens.
+36. The machine will now run autonomously until a halt state is reached.
 
 ## How does the machine run?
 Since a Turing machine needs a tape and a head to read it, we need to represent this in our game.
@@ -81,3 +124,10 @@ To ensure that the Dualcaste Mage doesn't die to tape movement, as we can't make
 
 We use a color-shifted Death's Presence to give +1/+1 counters to Dualcaster Mage, which is the only creature without protection from blue.
 This ensures that every time a creature dies, it boosts the toughness of Dualcaster Mage more than the next creature entering will subtract from it.
+
+## Credits
+Special thanks to Alex Churchill for the basis of this work.
+
+Additional thanks to reddit users /u/Rufus\_Reddit, /u/StellaAthena, /u/ais523, and everyone else on the reddit thread I posted in November 2018 for their assistance.
+
+Thank you and I'm very sorry to every one of my friends who have had to listen to me talk about this for the last year.
