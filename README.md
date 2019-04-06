@@ -7,7 +7,7 @@ A [Turing machine](https://en.wikipedia.org/wiki/Turing_machine) is a simple com
 
 A [universal Turing machine](https://en.wikipedia.org/wiki/Universal_Turing_machine) (UTM) is a Turing machine that is capable of simulating any other Turing machine.
 
-We are representing the UTM created by Yurii Rogozhin in his [1996 paper](https://www.sciencedirect.com/science/article/pii/S0304397596000771)
+We are representing the UTM created by Yurii Rogozhin in his [1996 paper.](https://www.sciencedirect.com/science/article/pii/S0304397596000771)
 
 ## How do we set up the machine?
 In order to establish the machine, we need a few core cards.
