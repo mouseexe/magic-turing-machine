@@ -13,7 +13,7 @@ We are representing the UTM created by Yurii Rogozhin in his [1996 paper](https:
 In order to establish the machine, we need a few core cards.
 There can be a couple ways to get to that stage, but we'll focus on just one path for now.
 1. Have 9 mana sources available, at least 3 mana's worth being non-land.
-2. Cast ![Paradox Engine](https://img.scryfall.com/cards/large/front/f/d/fd8ccd81-9e11-47fa-8e16-064c52c24506.jpg?1543700975) and Isochron Scepter, imprinting a draw cantrip (we'll use Brainstorm).
+2. Cast Paradox Engine and Isochron Scepter, imprinting a draw cantrip (we'll use Brainstorm).
 3. Using Isochron Scepter to cast Brainstorm, we can untap our non-land mana sources and and the Isochron Scepter to make infinite mana and draw as many cards as we need.
 4. Cast Soul Foundry, imprinting Clever Impersonator.
 5. Activate Soul Foundry two times to make two copies of Isochron Scepter, imprinting Noxious Revival and Artificial Evolution.
